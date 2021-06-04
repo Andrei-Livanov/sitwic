@@ -1,4 +1,4 @@
-package com.example.sitwic.repositry;
+package com.example.sitwic.repository;
 
 import com.example.sitwic.domain.Message;
 import org.springframework.data.repository.CrudRepository;
