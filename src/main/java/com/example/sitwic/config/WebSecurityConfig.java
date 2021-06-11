@@ -19,14 +19,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private UserService userService;
     private PasswordEncoder passwordEncoder;
 
-    @Autowired
-    public void setUserService(UserService userService) {
-        this.userService = userService;
-    }
-
     @Bean
     public PasswordEncoder getPasswordEncoder() {
         return new BCryptPasswordEncoder(8);
+    }
+
+    @Autowired
+    public void setUserService(UserService userService) {
+        this.userService = userService;
     }
 
     @Autowired
@@ -44,6 +44,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .formLogin()
                     .loginPage("/login")
                     .permitAll()
+                .and()
+                    .rememberMe()
                 .and()
                     .logout()
                     .permitAll();
