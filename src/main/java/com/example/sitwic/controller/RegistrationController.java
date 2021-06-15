@@ -61,7 +61,8 @@ public class RegistrationController {
             model.addAttribute("passwordError", "Password are different!");
         }
 
-        if (isConfirmEmpty || bindingResult.hasErrors() || !response.isSuccess()) {
+        if (isConfirmEmpty || bindingResult.hasErrors() || !response.isSuccess() ||
+                model.containsAttribute("passwordError")) {
             Map<String, String> errors = ControllerUtils.getErrors(bindingResult);
             model.mergeAttributes(errors);
             return "registration";

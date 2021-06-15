@@ -3,7 +3,6 @@ package com.example.sitwic.service;
 import com.example.sitwic.domain.Role;
 import com.example.sitwic.domain.User;
 import com.example.sitwic.repository.UserRepo;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -19,15 +18,11 @@ import java.util.stream.Collectors;
 public class UserService implements UserDetailsService {
     private final UserRepo userRepo;
     private final MailSender mailSender;
-    private PasswordEncoder passwordEncoder;
+    private final PasswordEncoder passwordEncoder;
 
-    public UserService(UserRepo userRepo, MailSender mailSender) {
+    public UserService(UserRepo userRepo, MailSender mailSender, PasswordEncoder passwordEncoder) {
         this.userRepo = userRepo;
         this.mailSender = mailSender;
-    }
-
-    @Autowired
-    public void setPasswordEncoder(PasswordEncoder passwordEncoder) {
         this.passwordEncoder = passwordEncoder;
     }
 
