@@ -3,6 +3,7 @@ package com.example.sitwic.controller;
 import com.example.sitwic.domain.Role;
 import com.example.sitwic.domain.User;
 import com.example.sitwic.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -14,9 +15,10 @@ import java.util.Map;
 @Controller
 @RequestMapping("/user")
 public class UserController {
-    private final UserService userService;
+    private UserService userService;
 
-    public UserController(UserService userService) {
+    @Autowired
+    public void setUserService(UserService userService) {
         this.userService = userService;
     }
 

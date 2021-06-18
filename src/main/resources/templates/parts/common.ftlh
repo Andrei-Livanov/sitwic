@@ -1,8 +1,8 @@
 <#macro page>
-    <!DOCTYPE HTML>
+    <!DOCTYPE html>
     <html lang="en">
     <head>
-        <meta charset=UTF-8" />
+        <meta charset="UTF-8" />
         <title>Sitwic</title>
         <link rel="stylesheet" href="/static/style.css" />
 
@@ -16,10 +16,10 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
               integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
               crossorigin="anonymous" />
-        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+        <script src='https://www.google.com/recaptcha/api.js'></script>
     </head>
     <body>
-    <#include "navbar.ftlh">
+    <#include "navbar.ftlh" />
     <div class="container mt-5">
         <#nested>
     </div>

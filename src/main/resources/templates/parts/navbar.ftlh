@@ -1,4 +1,4 @@
-<#include "security.ftlh">
+<#include "security.ftlh" />
 <#import "login.ftlh" as l>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">

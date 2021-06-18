@@ -3,6 +3,7 @@ package com.example.sitwic.controller;
 import com.example.sitwic.domain.User;
 import com.example.sitwic.domain.dto.CaptchaResponseDto;
 import com.example.sitwic.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,14 +22,19 @@ import java.util.Map;
 @Controller
 public class RegistrationController {
     private final static String CAPTCHA_URL = "https://www.google.com/recaptcha/api/siteverify?secret=%s&response=%s";
-    private final UserService userService;
-    private final RestTemplate restTemplate;
+    private UserService userService;
+    private RestTemplate restTemplate;
 
     @Value("${recaptcha.secret}")
     private String secret;
 
-    public RegistrationController(UserService userService, RestTemplate restTemplate) {
+    @Autowired
+    public void setUserService(UserService userService) {
         this.userService = userService;
+    }
+
+    @Autowired
+    public void setRestTemplate(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
     }
 

@@ -3,6 +3,8 @@ package com.example.sitwic.service;
 import com.example.sitwic.domain.Role;
 import com.example.sitwic.domain.User;
 import com.example.sitwic.repository.UserRepo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -16,13 +18,25 @@ import java.util.stream.Collectors;
 
 @Service
 public class UserService implements UserDetailsService {
-    private final UserRepo userRepo;
-    private final MailSender mailSender;
-    private final PasswordEncoder passwordEncoder;
+    private UserRepo userRepo;
+    private MailSender mailSender;
+    private PasswordEncoder passwordEncoder;
 
-    public UserService(UserRepo userRepo, MailSender mailSender, PasswordEncoder passwordEncoder) {
+    @Value("${hostname}")
+    private String hostname;
+
+    @Autowired
+    public void setUserRepo(UserRepo userRepo) {
         this.userRepo = userRepo;
+    }
+
+    @Autowired
+    public void setMailSender(MailSender mailSender) {
         this.mailSender = mailSender;
+    }
+
+    @Autowired
+    public void setPasswordEncoder(PasswordEncoder passwordEncoder) {
         this.passwordEncoder = passwordEncoder;
     }
 
@@ -122,8 +136,9 @@ public class UserService implements UserDetailsService {
     private void sendMessage(User user) {
         if (!StringUtils.isEmpty(user.getEmail())) {
             String message = String.format("Hello %s! \n" +
-                            "Welcome to Sitwic! Please, visit next link: http://localhost:8080/activate/%s",
+                            "Welcome to Sitwic! Please, visit next link: http://%s/activate/%s",
                     user.getUsername(),
+                    hostname,
                     user.getActivationCode());
 
             mailSender.send(user.getEmail(), "Activation code", message);

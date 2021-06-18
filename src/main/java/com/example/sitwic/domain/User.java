@@ -56,10 +56,6 @@ public class User implements UserDetails {
     )
     private Set<User> subscriptions = new HashSet<>();
 
-    public boolean isAdmin() {
-        return roles.contains(Role.ADMIN);
-    }
-
     public Long getId() {
         return id;
     }
@@ -82,10 +78,6 @@ public class User implements UserDetails {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public boolean isActive() {
-        return active;
     }
 
     public void setActive(boolean active) {
@@ -138,6 +130,14 @@ public class User implements UserDetails {
 
     public void setSubscriptions(Set<User> subscriptions) {
         this.subscriptions = subscriptions;
+    }
+
+    public boolean isAdmin() {
+        return roles.contains(Role.ADMIN);
+    }
+
+    public boolean isActive() {
+        return active;
     }
 
     @Override

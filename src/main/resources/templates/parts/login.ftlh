@@ -5,7 +5,7 @@
             <div class="col-sm-3">
                 <input type="text" name="username" value="<#if user??>${user.username}</#if>"
                        class="form-control ${(usernameError??)?string('is-invalid', '')}"
-                       placeholder="name"/>
+                       placeholder="name" />
                 <#if usernameError??>
                     <div class="invalid-feedback">
                         ${usernameError}
@@ -18,7 +18,7 @@
             <div class="col-sm-3">
                 <input type="password" name="password"
                        class="form-control ${(passwordError??)?string('is-invalid', '')}"
-                       placeholder="password"/>
+                       placeholder="password" />
                 <#if passwordError??>
                     <div class="invalid-feedback">
                         ${passwordError}
@@ -32,7 +32,7 @@
                 <div class="col-sm-3">
                     <input type="password" name="password2"
                            class="form-control ${(password2Error??)?string('is-invalid', '')}"
-                           placeholder="retype password"/>
+                           placeholder="retype password" />
                     <#if password2Error??>
                         <div class="invalid-feedback">
                             ${password2Error}
@@ -45,7 +45,7 @@
                 <div class="col-sm-3">
                     <input type="email" name="email" value="<#if user??>${user.email}</#if>"
                            class="form-control ${(emailError??)?string('is-invalid', '')}"
-                           placeholder="some@example.com"/>
+                           placeholder="some@example.com" />
                     <#if emailError??>
                         <div class="invalid-feedback">
                             ${emailError}
