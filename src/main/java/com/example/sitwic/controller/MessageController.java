@@ -30,7 +30,7 @@ import java.util.Set;
 import java.util.UUID;
 
 @Controller
-public class MainController {
+public class MessageController {
     private MessageRepo messageRepo;
     private MessageService messageService;
 
@@ -89,7 +89,7 @@ public class MainController {
 
         Iterable<Message> messages = messageRepo.findAll();
         model.addAttribute("messages", messages);
-        return "main";
+        return "redirect:/main";
     }
 
     @GetMapping("/user-messages/{author}")
