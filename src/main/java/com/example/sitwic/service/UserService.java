@@ -4,6 +4,7 @@ import com.example.sitwic.domain.Role;
 import com.example.sitwic.domain.User;
 import com.example.sitwic.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -20,6 +21,9 @@ public class UserService implements UserDetailsService {
     private UserRepo userRepo;
     private MailSender mailSender;
     private PasswordEncoder passwordEncoder;
+
+    @Value("${hostname}")
+    private String hostname;
 
     @Autowired
     public void setUserRepo(UserRepo userRepo) {
@@ -134,8 +138,9 @@ public class UserService implements UserDetailsService {
     private void sendMessage(User user) {
         if (!StringUtils.isEmpty(user.getEmail())) {
             String message = String.format("Hello %s! \n" +
-                            "Welcome to Sitwic! Please, visit next link:  https://sitwic.herokuapp.com/activate/%s",
+                            "Welcome to Sitwic! Please, visit next link: https://%s/activate/%s",
                     user.getUsername(),
+                    hostname,
                     user.getActivationCode());
 
             mailSender.send(user.getEmail(), "Activation code", message);
