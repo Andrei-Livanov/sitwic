@@ -7,9 +7,6 @@
     <groupId>com.example</groupId>
     <artifactId>sitwic</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>war</packaging>
-    <name>sitwic</name>
-
 
     <parent>
         <groupId>org.springframework.boot</groupId>
