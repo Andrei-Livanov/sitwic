@@ -48,7 +48,7 @@ public class MessageController {
     }
 
     @GetMapping("/")
-    public String greeting() {
+    public String greeting(Model model) {
         return "greeting";
     }
 
