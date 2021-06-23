@@ -8,9 +8,7 @@
     <artifactId>sitwic</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
-
     <name>sitwic</name>
-    <url>https://sitwic.herokuapp.com/</url>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -101,6 +99,10 @@
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
