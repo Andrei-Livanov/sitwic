@@ -82,6 +82,13 @@
             <artifactId>jaxb-impl</artifactId>
             <version>2.3.0</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.webjars.bower/favico.js -->
+        <dependency>
+            <groupId>org.webjars.bower</groupId>
+            <artifactId>favico.js</artifactId>
+            <version>0.3.10</version>
+        </dependency>
     </dependencies>
 
     <properties>
