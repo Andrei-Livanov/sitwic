@@ -48,8 +48,7 @@ public class MessageController {
     }
 
     @GetMapping("/")
-    @ResponseBody
-    public String greeting(Model model) {
+    public String greeting() {
         return "greeting";
     }
 
