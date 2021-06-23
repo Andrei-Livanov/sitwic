@@ -1,1 +1,1 @@
-web: java -jar target/sitwic-1.0.jar
+web: java -Dserver.port=$PORT $JAVA_OPTS -jar target/sitwic-1.0-SNAPSHOT.jar
