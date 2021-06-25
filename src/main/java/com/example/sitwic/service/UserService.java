@@ -137,7 +137,7 @@ public class UserService implements UserDetailsService {
 
     private void sendMessage(User user) {
         if (!StringUtils.isEmpty(user.getEmail())) {
-            String message = String.format("Hello %s! \n" +
+            String message = String.format("Hello, %s! \n" +
                             "Welcome to Sitwic! Please, visit next link: https://%s/activate/%s",
                     user.getUsername(),
                     hostname,

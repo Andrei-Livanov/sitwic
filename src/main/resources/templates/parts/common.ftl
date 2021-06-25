@@ -10,7 +10,7 @@
 
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
               integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
-              crossorigin="anonymous" >
+              crossorigin="anonymous" />
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
@@ -19,7 +19,7 @@
         <script src='https://www.google.com/recaptcha/api.js'></script>
     </head>
     <body>
-    <#include "navbar.ftlh" />
+    <#include "navbar.ftl" />
     <div class="container mt-5">
         <#nested>
     </div>

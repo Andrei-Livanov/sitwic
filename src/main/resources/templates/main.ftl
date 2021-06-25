@@ -1,4 +1,4 @@
-<#import "parts/common.ftlh" as c>
+<#import "parts/common.ftl" as c>
 
 <@c.page>
     <div class="form-row">
@@ -11,8 +11,8 @@
         </div>
     </div>
 
-    <#include "parts/messageEdit.ftlh" />
+    <#include "parts/messageEdit.ftl" />
 
-    <#include "parts/messageList.ftlh" />
+    <#include "parts/messageList.ftl" />
 
 </@c.page>

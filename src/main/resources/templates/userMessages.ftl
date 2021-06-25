@@ -1,4 +1,4 @@
-<#import "parts/common.ftlh" as c>
+<#import "parts/common.ftl" as c>
 
 <@c.page>
     <h3>${userChannel.username}</h3>
@@ -34,8 +34,8 @@
         </div>
     </div>
     <#if isCurrentUser>
-        <#include "parts/messageEdit.ftlh" />
+        <#include "parts/messageEdit.ftl" />
     </#if>
 
-    <#include "parts/messageList.ftlh" />
+    <#include "parts/messageList.ftl" />
 </@c.page>

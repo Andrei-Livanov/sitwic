@@ -1,5 +1,5 @@
-<#include "security.ftlh" >
-<#import "login.ftlh" as l>
+<#include "security.ftl" >
+<#import "login.ftl" as l>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="/">Sitwic</a>

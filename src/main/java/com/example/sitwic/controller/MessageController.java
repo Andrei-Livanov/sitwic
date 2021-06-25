@@ -64,6 +64,7 @@ public class MessageController {
         model.addAttribute("page", page);
         model.addAttribute("url", "/main");
         model.addAttribute("filter", filter);
+
         return "main";
     }
 
@@ -73,6 +74,8 @@ public class MessageController {
             @Valid Message message,
             BindingResult bindingResult,
             Model model,
+            @RequestParam(required = false, defaultValue = "") String filter,
+            @PageableDefault(sort = {"id"}, direction = Sort.Direction.DESC) Pageable pageable,
             @RequestParam("file") MultipartFile file
     ) throws IOException {
         message.setAuthor(user);
@@ -87,8 +90,9 @@ public class MessageController {
             messageRepo.save(message);
         }
 
-        Iterable<Message> messages = messageRepo.findAll();
-        model.addAttribute("messages", messages);
+        Page<MessageDto> page = messageService.messageList(pageable, filter, user);
+        model.addAttribute("page", page);
+
         return "redirect:/main";
     }
 
@@ -110,6 +114,7 @@ public class MessageController {
         model.addAttribute("message", message);
         model.addAttribute("isCurrentUser", currentUser.equals(author));
         model.addAttribute("url", "/user-messages/" + author.getId());
+
         return "userMessages";
     }
 
@@ -134,7 +139,7 @@ public class MessageController {
             saveFile(message, file);
             messageRepo.save(message);
         }
-        return "redirect:/user-messages/" + user;
+        return "redirect:/main";
     }
 
     @GetMapping("/messages/{message}/like")
