@@ -142,6 +142,11 @@ public class MessageController {
         return "redirect:/main";
     }
 
+    @PostMapping("/delete/{id}")
+    public void deletePerson(@PathVariable Long id) {
+        messageRepo.deleteById(id);
+    }
+
     @GetMapping("/messages/{message}/like")
     public String like(
             @AuthenticationPrincipal User currentUser,

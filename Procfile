@@ -1,1 +1,0 @@
-web:    java $JAVA_OPTS  -DSITWIC_ROOT="." -jar target/dependency/webapp-runner.jar --port $PORT target/*.war

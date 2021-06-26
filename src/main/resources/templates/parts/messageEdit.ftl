@@ -33,6 +33,7 @@
             <input type="hidden" name="id" value="<#if message??>${message.id}</#if>" />
             <div class="form-group">
                 <button class="btn btn-primary" type="submit">Save message</button>
+                <button class="btn btn-primary" type="submit">Delete message</button>
             </div>
         </form>
     </div>

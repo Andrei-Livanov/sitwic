@@ -6,11 +6,7 @@
 
     <groupId>com.example</groupId>
     <artifactId>sitwic</artifactId>
-    <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
-
-    <name>sitwic</name>
-    <url>https://sitwic.herokuapp.com/</url>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -31,6 +27,40 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <optional>true</optional>
+        </dependency>
+
+        <!--- ORM -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>4.0.1</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-dbcp</artifactId>
+            <version>10.0.5</version>
         </dependency>
 
         <!-- DataBase support -->
@@ -79,55 +109,45 @@
             <artifactId>jaxb-impl</artifactId>
             <version>2.3.0</version>
         </dependency>
+
+        <!-- bootstrap -->
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>bootstrap</artifactId>
             <version>4.1.1</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.webjars</groupId>
-                    <artifactId>jquery</artifactId>
-                </exclusion>
-                <exclusion>
-                    <!--                https://getbootstrap.com/docs/4.5/components/popovers         -->
-                    <groupId>org.webjars</groupId>
-                    <artifactId>popper.js</artifactId>
-                </exclusion>
-            </exclusions>
+        </dependency>
+
+        <!-- popper.js -->
+        <dependency>
+            <groupId>org.webjars.npm</groupId>
+            <artifactId>popper.js</artifactId>
+            <version>1.14.3</version>
+        </dependency>
+
+        <!-- jquery -->
+        <dependency>
+            <groupId>org.webjars.bower</groupId>
+            <artifactId>jquery</artifactId>
+            <version>3.3.1</version>
+        </dependency>
+
+        <!-- fortawesome__fontawesome-free -->
+        <dependency>
+            <groupId>org.webjars.npm</groupId>
+            <artifactId>fortawesome__fontawesome-free</artifactId>
+            <version>5.15.1</version>
         </dependency>
     </dependencies>
 
     <properties>
         <java.version>1.8</java.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
 
     <build>
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <version>3.1.2</version>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>copy</goal>
-                        </goals>
-                        <configuration>
-                            <artifactItems>
-                                <!--https://github.com/jsimone/webapp-runner#using-without-memcached-or-redis-->
-                                <artifactItem>
-                                    <groupId>com.heroku</groupId>
-                                    <artifactId>webapp-runner-main</artifactId>
-                                    <version>9.0.41.0</version>
-                                    <destFileName>webapp-runner.jar</destFileName>
-                                </artifactItem>
-                            </artifactItems>
-                        </configuration>
-                    </execution>
-                </executions>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
     </build>
